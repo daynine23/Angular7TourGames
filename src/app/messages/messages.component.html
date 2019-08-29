@@ -1,0 +1,12 @@
+<div *ngIf="messageService.messages.length">
+    <h2>Messages</h2>
+    
+    <button class="clear"
+    (click)="messageService.clear()">clear</button>
+ 
+    <div *ngFor='let message of messageService.messages'> {{message}} </div>
+</div>
+<div mat-dialog-content>
+    <button mat-button (click)="onClickNO">NO</button>
+    <button mat-button [mat-dialog-close]="true">SI</button>
+</div>

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { GamesComponent } from './games/games.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-tour-of-games';
+  constructor(
+    public dialog: MatDialog
+  ){}
+
+  openDialog():void{
+    const dialogRef = this.dialog.open(MessagesComponent, {});
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
+  }
+  ngOnInit(): void {
+    
+  }
+  title = 'Tours of Games';  
 }
